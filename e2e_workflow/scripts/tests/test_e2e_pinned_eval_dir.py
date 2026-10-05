@@ -12,11 +12,12 @@ workflow_parse_error. So the Director must keep the pin as-is, and the workflow 
 import os
 import re
 import sys
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 E2E = os.path.abspath(os.path.join(HERE, "..", ".."))
-SRC = open(os.path.join(E2E, "e2e_workflow.js")).read()
-DIRECTOR = open(os.path.join(E2E, "roles", "director.md")).read()
+SRC = Path(E2E, "e2e_workflow.js").read_text()
+DIRECTOR = Path(E2E, "roles", "director.md").read_text()
 
 FAILED = []
 
